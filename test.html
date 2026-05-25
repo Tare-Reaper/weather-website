@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thời Tiết</title>
+    <link rel="icon" type="image/x-icon" href="c:\Users\admin\Pictures\pngtree-cloud-and-shining-sun-doodle-png-image_6125673.png">
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: white;
+        }
+
+        .container{
+            width: 350px;
+            margin: 80px auto;
+            background: rgba(255,255,255,0.2);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        h1{
+            margin-bottom: 20px;
+        }
+
+        input{
+            width: 80%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        button{
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #0077ff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover{
+            background: #005fcc;
+        }
+
+        .weather-box{
+            margin-top: 20px;
+        }
+
+        .temp{
+            font-size: 40px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>THỜI TIẾT</h1>
+
+        <input type="text" id="city" placeholder="Nhập thành phố">
+
+        <br>
+
+        <button onclick="showWeather()">
+            Xem thời tiết
+        </button>
+
+        <div class="weather-box">
+            <h2 id="cityName">Đà Nẵng</h2>
+            <p class="temp" id="temperature">30°C</p>
+            <p id="status">Trời nắng</p>
+        </div>
+    </div>
+
+    <script>
+        function showWeather(){
+
+            let city = document.getElementById("city").value;
+
+            document.getElementById("cityName").innerHTML = city;
+
+            let temp = Math.floor(Math.random() * 15) + 20;
+
+            document.getElementById("temperature").innerHTML = temp + "°C";
+
+            let weatherList = [
+                "Trời nắng",
+                "Có mưa",
+                "Nhiều mây",
+                "Giông",
+                "Mát mẻ"
+            ];
+
+            let randomWeather =
+                weatherList[Math.floor(Math.random() * weatherList.length)];
+
+            document.getElementById("status").innerHTML = randomWeather;
+        }
+    </script>
+
+</body>
+</html>
